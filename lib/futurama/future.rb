@@ -34,5 +34,3 @@ module Futurama
 
   end
 end
-
-Kernel

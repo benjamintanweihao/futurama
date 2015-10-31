@@ -10,13 +10,6 @@ module Futurama
       expect(future).to eq(3)
     end
 
-    it 'runs the computation on another thread' do
-      main_thread   = Thread.current.to_s
-      future_thread = Future.new { Thread.current.to_s }
-
-      expect(main_thread).not_to eq(future_thread)
-    end
-
     it 'executes the computation in the background' do
       future = Future.new { sleep(1); 42 }
 
@@ -28,6 +21,8 @@ module Futurama
     end
 
     it 'captures exceptions and re-raises them' do
+      Thread.abort_on_exception=true
+
       error_msg = 'Good news, everyone!'
 
       future = Future.new { raise error_msg }
