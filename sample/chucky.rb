@@ -4,7 +4,7 @@ require 'json'
 require 'benchmark'
 
 class Chucky
-  URL = 'http://api.icndb.com/jokes/random'
+  URL = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
 
   def sequential
     open(URL) do |f|

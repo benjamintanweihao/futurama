@@ -20,6 +20,8 @@ module Futurama
       resolved_future_or_raise[:value]
     end
 
+    alias_method :value, :__getobj__
+
     def resolved_future_or_raise
       @resolved_future || @mutex.synchronize do
         @resolved_future ||= @queue.pop

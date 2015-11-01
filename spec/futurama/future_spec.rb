@@ -69,5 +69,12 @@ module Futurama
       expect(future).to eq(msg)
     end
 
+    it 'allows access to its value' do
+      val = 10
+      future = Future.new { val }
+
+      expect(future.value).to eq(val)
+    end
+
   end
 end
